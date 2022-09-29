@@ -44,11 +44,11 @@ public class Main {
         }
 
         System.out.print("Adjon meg egy szöveget: ");
-        String sIn=sc.nextLine();
+        String sIn=sc.next();
         bejegyzesList.get(1).setContent(sIn);
 
         for (int i = 0; i < bejegyzesList.size(); i++) {
-            bejegyzesList.get(i).toString();
+            System.out.println(bejegyzesList.get(i).toString());
         }
     }
 }
