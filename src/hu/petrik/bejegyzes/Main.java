@@ -62,12 +62,9 @@ public class Main {
         System.out.println("A legnépszerűbb bejegyzés: "+bejegyzesList.get(maxIndex).toString());
 
         boolean _35OrMore = false;
-        int i = 0;
-        while (_35OrMore == false){
-            if(bejegyzesList.get(i).getLikes() > 35){
+        for (int j = 0; j < bejegyzesList.size(); j++) {
+            if (bejegyzesList.get(j).getLikes() > 35){
                 _35OrMore = true;
-            }else{
-                i++;
             }
         }
         if (_35OrMore == true){
@@ -75,5 +72,13 @@ public class Main {
         }else {
             System.out.println("Nincs olyan poszt aminek 35-nél több likeja van");
         }
+
+        int counter=0;
+        for (int j = 0; j < bejegyzesList.size(); j++) {
+            if(bejegyzesList.get(j).getLikes() > 15){
+                counter++;
+            }
+        }
+        System.out.printf("%d darab olyan bejegyzés van ami 15 like-nál többet kapott", counter);
     }
 }
