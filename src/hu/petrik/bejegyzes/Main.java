@@ -35,10 +35,8 @@ public class Main {
         }
 
         for (int i = 0; i < bejegyzesList.size(); i++) {
-            if ((int) ((Math.random() * 100) + 1) % 2 == 0) {
                 for (int j = 0; j < 20; j++) {
-                    bejegyzesList.get(i).like();
-                }
+                    bejegyzesList.get((int)(Math.random()*bejegyzesList.size())).like();
             }
         }
 
