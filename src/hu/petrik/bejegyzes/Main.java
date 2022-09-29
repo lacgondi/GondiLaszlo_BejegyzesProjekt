@@ -12,69 +12,69 @@ public class Main {
         System.out.print("Mennyi bejegyzést szeretne hozzáadni a listához: ");
         int inNum = 0;
         try {
-            inNum=sc.nextInt();
-        }catch (InputMismatchException e){
+            inNum = sc.nextInt();
+        } catch (InputMismatchException e) {
             System.out.println(e);
             return;
         }
 
         for (int i = 0; i < inNum; i++) {
-            bejegyzesList.add(new Bejegyzes("author"+i, "content"+i));
+            bejegyzesList.add(new Bejegyzes("author" + i, "content" + i));
         }
 
         File fileName = new File("bejegyzesek.csv");
         Scanner scR = null;
         try {
-            scR=new Scanner(fileName);
+            scR = new Scanner(fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        while (scR.hasNextLine()){
+        while (scR.hasNextLine()) {
             String[] temp = scR.nextLine().split(";");
-            bejegyzesList.add(new Bejegyzes(temp[0],temp[1]));
+            bejegyzesList.add(new Bejegyzes(temp[0], temp[1]));
         }
 
         for (int i = 0; i < bejegyzesList.size(); i++) {
-            if ((int)((Math.random()*100)+1)%2==0){
-                for (int j = 0; j <20 ; j++) {
+            if ((int) ((Math.random() * 100) + 1) % 2 == 0) {
+                for (int j = 0; j < 20; j++) {
                     bejegyzesList.get(i).like();
                 }
             }
         }
 
         System.out.print("Adjon meg egy szöveget: ");
-        String sIn=sc.next();
+        String sIn = sc.next();
         bejegyzesList.get(1).setContent(sIn);
 
         for (int i = 0; i < bejegyzesList.size(); i++) {
             System.out.println(bejegyzesList.get(i).toString());
         }
 
-        int max=Integer.MIN_VALUE;
-        int maxIndex =0;
+        int max = Integer.MIN_VALUE;
+        int maxIndex = 0;
         for (int i = 0; i < bejegyzesList.size(); i++) {
-            if(bejegyzesList.get(i).getLikes()>max){
+            if (bejegyzesList.get(i).getLikes() > max) {
                 max = bejegyzesList.get(i).getLikes();
                 maxIndex = i;
             }
         }
-        System.out.println("A legnépszerűbb bejegyzés: "+bejegyzesList.get(maxIndex).toString());
+        System.out.println("A legnépszerűbb bejegyzés: " + bejegyzesList.get(maxIndex).toString());
 
         boolean _35OrMore = false;
         for (int j = 0; j < bejegyzesList.size(); j++) {
-            if (bejegyzesList.get(j).getLikes() > 35){
+            if (bejegyzesList.get(j).getLikes() > 35) {
                 _35OrMore = true;
             }
         }
-        if (_35OrMore == true){
+        if (_35OrMore == true) {
             System.out.println("Van olyan poszt aminek 35-nél több likeja van");
-        }else {
+        } else {
             System.out.println("Nincs olyan poszt aminek 35-nél több likeja van");
         }
 
-        int counter=0;
+        int counter = 0;
         for (int j = 0; j < bejegyzesList.size(); j++) {
-            if(bejegyzesList.get(j).getLikes() > 15){
+            if (bejegyzesList.get(j).getLikes() > 15) {
                 counter++;
             }
         }

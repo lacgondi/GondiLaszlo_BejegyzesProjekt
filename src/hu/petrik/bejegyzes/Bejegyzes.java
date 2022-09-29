@@ -45,19 +45,18 @@ public class Bejegyzes {
         return edited;
     }
 
-    public void like(){
+    public void like() {
         likes++;
     }
 
     @Override
     public String toString() {
         String output = String.format("%s - %d - %s", author, likes, creation.toString());
-        if(wasEdited == true){
-            output+= String.format("\nSzerkesztve: %s", edited.toString());
+        if (wasEdited == true) {
+            output += String.format("\nSzerkesztve: %s", edited.toString());
         }
-        output+=String.format("\n%s", content);
+        output += String.format("\n%s", content);
         return output;
-
 
 
     }
