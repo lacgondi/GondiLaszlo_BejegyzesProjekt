@@ -13,6 +13,7 @@ public class Main {
         int inNum = 0;
         try {
             inNum = sc.nextInt();
+            sc.nextLine();
         } catch (InputMismatchException e) {
             System.out.println(e);
             return;
@@ -40,9 +41,12 @@ public class Main {
             }
         }
 
+        System.out.print("Adja meg a nevét: ");
+        String nameIn=sc.nextLine();
         System.out.print("Adjon meg egy szöveget: ");
-        String sIn = sc.next();
-        bejegyzesList.get(1).setContent(sIn);
+        String contentIn = sc.nextLine();
+        bejegyzesList.get(1).setAuthor(nameIn);
+        bejegyzesList.get(1).setContent(contentIn);
 
         for (int i = 0; i < bejegyzesList.size(); i++) {
             System.out.println(bejegyzesList.get(i).toString());
