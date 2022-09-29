@@ -8,6 +8,7 @@ public class Bejegyzes {
     private int likes;
     private LocalDateTime creation;
     private LocalDateTime edited;
+    private boolean wasEdited;
 
     public Bejegyzes(String author, String content) {
         this.author = author;
@@ -15,6 +16,7 @@ public class Bejegyzes {
         likes = 0;
         creation = LocalDateTime.now();
         edited = LocalDateTime.now();
+        wasEdited = false;
     }
 
     public String getAuthor() {
@@ -28,6 +30,7 @@ public class Bejegyzes {
     public void setContent(String content) {
         this.content = content;
         edited = LocalDateTime.now();
+        wasEdited = true;
     }
 
     public int getLikes() {
@@ -48,6 +51,13 @@ public class Bejegyzes {
 
     @Override
     public String toString() {
-        return String.format("%s - %d - %s\nSzerkesztve: %s\n%s", author, likes, creation.toString(), edited.toString(), content);
+        String output = String.format("%s - %d - %s", author, likes, creation.toString());
+        if(wasEdited == true){
+            output+= String.format("Szerkesztve: %s\n%s", edited.toString(), content);
+        }
+        return output;
+
+
+
     }
 }
