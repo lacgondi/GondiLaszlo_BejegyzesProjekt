@@ -45,4 +45,9 @@ public class Bejegyzes {
     public void like(){
         likes++;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %d - %s\nSzerkesztve: %s\n%s", author, likes, creation.toString(), edited.toString(), content);
+    }
 }
