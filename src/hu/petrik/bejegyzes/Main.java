@@ -2,10 +2,7 @@ package hu.petrik.bejegyzes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,9 +34,11 @@ public class Main {
             bejegyzesList.add(new Bejegyzes(temp[0],temp[1]));
         }
 
-        for (int i = 0; i < bejegyzesList.size()*20; i++) {
-            if ((Math.random()*1)==1){
-                bejegyzesList.get(i).like();
+        for (int i = 0; i < bejegyzesList.size(); i++) {
+            if ((int)((Math.random()*100)+1)%2==0){
+                for (int j = 0; j <20 ; j++) {
+                    bejegyzesList.get(i).like();
+                }
             }
         }
 
@@ -80,5 +79,10 @@ public class Main {
             }
         }
         System.out.printf("%d darab olyan bejegyzés van ami 15 like-nál többet kapott", counter);
+
+        Collections.reverse(bejegyzesList);
+        for (int i = 0; i < bejegyzesList.size(); i++) {
+            System.out.println(bejegyzesList.get(i));
+        }
     }
 }
