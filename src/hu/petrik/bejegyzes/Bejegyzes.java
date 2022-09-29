@@ -53,8 +53,9 @@ public class Bejegyzes {
     public String toString() {
         String output = String.format("%s - %d - %s", author, likes, creation.toString());
         if(wasEdited == true){
-            output+= String.format("Szerkesztve: %s\n%s", edited.toString(), content);
+            output+= String.format("\nSzerkesztve: %s", edited.toString());
         }
+        output+=String.format("\n%s", content);
         return output;
 
 
