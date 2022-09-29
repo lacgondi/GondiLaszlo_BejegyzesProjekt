@@ -23,6 +23,10 @@ public class Bejegyzes {
         return author;
     }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public String getContent() {
         return content;
     }
