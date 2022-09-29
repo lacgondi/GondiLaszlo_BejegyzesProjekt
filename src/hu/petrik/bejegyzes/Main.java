@@ -50,5 +50,17 @@ public class Main {
         for (int i = 0; i < bejegyzesList.size(); i++) {
             System.out.println(bejegyzesList.get(i).toString());
         }
+
+        int max=Integer.MIN_VALUE;
+        int maxIndex =0;
+        for (int i = 0; i < bejegyzesList.size(); i++) {
+            if(bejegyzesList.get(i).getLikes()>max){
+                max = bejegyzesList.get(i).getLikes();
+                maxIndex = i;
+            }
+        }
+        System.out.println("A legnépszerűbb bejegyzés: "+bejegyzesList.get(maxIndex).toString());
+
+
     }
 }
